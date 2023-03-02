@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.0.1</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>d1</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>d1</name>
+	<description>d1</description>
+	<properties>
+		<java.version>19</java.version>
+		<maven.compiler.source>19</maven.compiler.source>
+		<maven.compiler.target>19</maven.compiler.target>
+
+		<springframework.version>5.0.6.RELEASE</springframework.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<!--<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+
+		&lt;!&ndash; Add Jackson for JSON converters &ndash;&gt;
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.5</version>
+		</dependency>
+
+		&lt;!&ndash; Hibernate &ndash;&gt;
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		&lt;!&ndash; MySQL &ndash;&gt;
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector.version}</version>
+		</dependency>
+
+		&lt;!&ndash; C3PO &ndash;&gt;
+		<dependency>
+			<groupId>com.mchange</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>${c3po.version}</version>
+		</dependency>
+
+		&lt;!&ndash; to compensate for java 9 not including jaxb &ndash;&gt;
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>-->
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>6.0.3</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>spring-crm-rest</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
