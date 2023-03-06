@@ -26,6 +26,11 @@ public class CustomerDAOImpl implements CustomerDAO{
 
     }
 
+    public void updateCustomer(Customer customer){
+        System.out.println("customer "+customer.getFirstName()+ "updated");
+
+    }
+
     public void deleteCustomer(int id){
         System.out.println("customer whit id "+ id + " deleted");
     }
