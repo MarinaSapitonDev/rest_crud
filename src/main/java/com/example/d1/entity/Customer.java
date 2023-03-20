@@ -2,8 +2,11 @@ package com.example.d1.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+//optimize with Lombok
 @JsonIgnoreProperties(ignoreUnknown = true)
+//public record Customer {
 public class Customer {
+
     private int id;
     private String firstName;
     private String lastName;
@@ -17,7 +20,7 @@ public class Customer {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
+  //annotation instead of geters/seters and constructors, toString etc
     public int getId() {
         return id;
     }

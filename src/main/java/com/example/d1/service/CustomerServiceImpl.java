@@ -19,8 +19,9 @@ public class CustomerServiceImpl implements CustomerService{
         return customerDAO.getCustomers();
     }
 
-    public Customer getCustomer(int id){
-        return customerDAO.getCustomer(id);
+    public Customer getCustomer(int id){                 //add message () -> new IllegalArgEx("msg)
+        //return customerDAO.getCustomer(id).orElseThrow(IllegalArgumentException::new );//can be exception
+        return customerDAO.getCustomer(id).orElseThrow(()-> new IllegalArgumentException("msg"));//can be exception
     }
     public void saveCustomer(Customer customer) {
         customerDAO.saveCustomer(customer);

@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @Repository
 public class CustomerDAOImpl implements CustomerDAO{
     public List<Customer> getCustomers(){
@@ -17,8 +19,8 @@ public class CustomerDAOImpl implements CustomerDAO{
         return customers;
     }
 
-    public Customer getCustomer(int id){
-        return null;
+    public Optional<Customer> getCustomer(int id){
+        return Optional.empty();
     }
 
     public void saveCustomer(Customer customer){
