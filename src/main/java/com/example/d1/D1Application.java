@@ -1,6 +1,5 @@
 package com.example.d1;
 
-import com.example.d1.entity.Customer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
