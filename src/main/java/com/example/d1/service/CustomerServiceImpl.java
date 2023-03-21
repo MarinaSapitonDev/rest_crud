@@ -22,12 +22,14 @@ public class CustomerServiceImpl implements CustomerService{
     public Customer getCustomer(int id){                 //add message () -> new IllegalArgEx("msg)
         //return customerDAO.getCustomer(id).orElseThrow(IllegalArgumentException::new );//can be exception
         return customerDAO.getCustomer(id).orElseThrow(()-> new IllegalArgumentException("msg"));//can be exception
+        //why exception
     }
     public void saveCustomer(Customer customer) {
         customerDAO.saveCustomer(customer);
     }
-    public void updateCustomer(Customer customer) {
-        customerDAO.updateCustomer(customer);
+
+    public void updateCustomer(int id,Customer customer) {
+        customerDAO.updateCustomer(id, customer);
     }
 
 

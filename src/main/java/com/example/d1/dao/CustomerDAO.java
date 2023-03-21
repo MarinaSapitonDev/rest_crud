@@ -12,7 +12,7 @@ public interface CustomerDAO {
 
     void saveCustomer(Customer customer);
 
-    void updateCustomer(Customer customer);
+    void updateCustomer(int id,Customer customer);
 
     void deleteCustomer(int id);
 }

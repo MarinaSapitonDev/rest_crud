@@ -2,60 +2,9 @@ package com.example.d1.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-//optimize with Lombok
 @JsonIgnoreProperties(ignoreUnknown = true)
-//public record Customer {
-public class Customer {
+public record Customer( int id, String firstName, String lastName, String email) {}
 
-    private int id;
-    private String firstName;
-    private String lastName;
-    private String email;
 
-    public Customer() {
 
-    }
-
-    public Customer(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-  //annotation instead of geters/seters and constructors, toString etc
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
-    }
-}
 

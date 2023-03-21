@@ -1,7 +1,6 @@
 package com.example.d1.dao;
 
 import com.example.d1.entity.Customer;
-import com.example.d1.helper.JSONMapperHelper;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -12,9 +11,9 @@ import java.util.Optional;
 public class CustomerDAOImpl implements CustomerDAO{
     public List<Customer> getCustomers(){
         List<Customer> customers = new ArrayList<>();
-        customers.add(new Customer("Poornima","Pit"));
-        customers.add(new Customer("Mario","Rozari"));
-        customers.add(new Customer("Selena","Gomez"));
+        customers.add(new Customer(1,"Poornima","Pit","mylo"));
+        customers.add(new Customer(2,"Mario","Rozari","mylo"));
+        customers.add(new Customer(3,"Selena","Gomez","email"));
 
         return customers;
     }
@@ -24,12 +23,12 @@ public class CustomerDAOImpl implements CustomerDAO{
     }
 
     public void saveCustomer(Customer customer){
-        System.out.println("customer "+customer.getFirstName()+ "saved to db");
+        System.out.println("customer "+customer.firstName()+ "saved to db");
 
     }
 
-    public void updateCustomer(Customer customer){
-        System.out.println("customer "+customer.getFirstName()+ "updated");
+    public void updateCustomer(int id, Customer customer){
+        System.out.println("customer "+customer.firstName()+ " with id "+ id +" updated");
 
     }
 

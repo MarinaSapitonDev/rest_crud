@@ -36,27 +36,6 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
             <version>3.0.1</version>
         </dependency>
-<!--
-
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.26</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>6.2.0.CR3</version>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>1.0.2</version>
-		</dependency>
--->
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -78,7 +57,17 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.26</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<artifactId>lombok</artifactId>
+			<groupId>org.projectlombok</groupId>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<finalName>spring-crm-rest</finalName>

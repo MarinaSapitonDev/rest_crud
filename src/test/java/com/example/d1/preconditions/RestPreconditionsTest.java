@@ -21,7 +21,7 @@ class RestPreconditionsTest {
 
     @Test
     void testNoException() {
-        Customer customer = new Customer("Maryna", "Sapiton");
+        Customer customer = new Customer(1,"Maryna", "Sapiton","mail");
 
         Assertions.assertDoesNotThrow(() -> {
             RestPreconditions.checkFound(customer);

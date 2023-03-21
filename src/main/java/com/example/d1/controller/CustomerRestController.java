@@ -2,9 +2,9 @@ package com.example.d1.controller;
 
 import com.example.d1.entity.Customer;
 import com.example.d1.exception.MyResourceNotFoundException;
-import com.example.d1.helper.JSONMapperHelper;
 import com.example.d1.preconditions.RestPreconditions;
 import com.example.d1.service.CustomerServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,15 +17,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 @Validated
+@RequiredArgsConstructor
 public class CustomerRestController {
-    //add Lombok lib add annotation @RequiredArgsConstructor(generate final parameters)  and remove constructor,
     private final CustomerServiceImpl customerService;
 
-    @Autowired //can be removed
-    CustomerRestController(CustomerServiceImpl customerService){
-        this.customerService = customerService;
-    }
-
+    //how to reproduce this with postman
     @GetMapping("/hello")
     public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
         return String.format("Hello %s!", name);
@@ -34,12 +30,6 @@ public class CustomerRestController {
     @GetMapping("/customers/{id}")
     public ResponseEntity<Customer> getCustomer(@PathVariable int id) {
         return ResponseEntity.ok(customerService.getCustomer(id));
-    }
-
-    @GetMapping("/returnJSON")
-    public Customer returnCustomerJSON(){
-        JSONMapperHelper helper = new JSONMapperHelper();
-        return helper.returnCustomerJSON();
     }
 
     @GetMapping("/customers")
@@ -56,22 +46,15 @@ public class CustomerRestController {
             e.printStackTrace();
         }
 
-        customer.setId(0);
+       // customer.setId(0);
         customerService.saveCustomer(customer);
         return customer;
     }
 
-    //test this method
     @PutMapping(value = "customers/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Customer updateCustomer(@RequestBody @NonNull Customer customer,@PathVariable int id) {
-        /*try {
-            RestPreconditions.checkFound(customer);
-        } catch (MyResourceNotFoundException e) {
-            e.printStackTrace();
-        }*/
-        //add id
-        customerService.updateCustomer(customer);
+        customerService.updateCustomer(id,customer);
         return customer;
     }
 
