@@ -5,6 +5,15 @@ import com.example.d1.entity.Customer;
 import java.util.List;
 
 public interface CustomerService {
+     List<Customer> findAll();
+
+     Customer findById(int id);
+
+     void save(Customer customer);
+
+     Customer update(Customer customer);
+
+     void deleteByID(int id);
 
      List<Customer> getCustomers();
 

@@ -6,6 +6,16 @@ import java.util.Optional;
 
 public interface CustomerDAO {
 
+    List<Customer> findAll();
+
+    Customer findByID(int id);
+
+    void save (Customer customer);
+
+    Customer update(Customer customer);
+
+    void deleteByID(int id);
+
     List<Customer> getCustomers();
 
     Optional<Customer> getCustomer(int id);

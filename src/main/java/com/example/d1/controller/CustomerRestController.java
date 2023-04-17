@@ -3,9 +3,8 @@ package com.example.d1.controller;
 import com.example.d1.entity.Customer;
 import com.example.d1.exception.MyResourceNotFoundException;
 import com.example.d1.preconditions.RestPreconditions;
-import com.example.d1.service.CustomerServiceImpl;
+import com.example.d1.service.CustomerService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
@@ -19,14 +18,48 @@ import java.util.List;
 @Validated
 @RequiredArgsConstructor
 public class CustomerRestController {
-    private final CustomerServiceImpl customerService;
-
-    //how to reproduce this with postman
+    private final CustomerService customerService;
     @GetMapping("/hello")
     public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
         return String.format("Hello %s!", name);
     }
+    @GetMapping("/db/customers")
+    public List<Customer> findAllCustomers(){
+        return customerService.findAll();
+    }
+
+    @GetMapping("/db/customers/{id}")
+    public ResponseEntity<Customer> findCustomerById(@PathVariable int id) {
+        return ResponseEntity.ok(customerService.findById(id));
+    }
+
+    @PostMapping("/db/customers")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Customer createCustomer(@RequestBody Customer customer) {
+        try {
+            RestPreconditions.checkFound(customer);
+        } catch (MyResourceNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        customerService.save(customer);
+        return customer;
+    }
+
+    @PutMapping(value = "/db/customers/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Customer updateCustomer(@RequestBody @NonNull Customer customer,@PathVariable int id) {
+        return customerService.update(customer);
+    }
+
+    @DeleteMapping(value = "db/customers/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteCustomer(@PathVariable("id")int id) {
+        customerService.deleteByID(id);
+    }
+
     //test this method
+    //tested, got the exception
     @GetMapping("/customers/{id}")
     public ResponseEntity<Customer> getCustomer(@PathVariable int id) {
         return ResponseEntity.ok(customerService.getCustomer(id));
@@ -51,7 +84,7 @@ public class CustomerRestController {
         return customer;
     }
 
-    @PutMapping(value = "customers/{id}")
+  /*  @PutMapping(value = "customers/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Customer updateCustomer(@RequestBody @NonNull Customer customer,@PathVariable int id) {
         customerService.updateCustomer(id,customer);
@@ -62,5 +95,5 @@ public class CustomerRestController {
     @ResponseStatus(HttpStatus.OK)
     public void deleteCustomer(@PathVariable("id")int id){
         customerService.deleteCustomer(id);
-    }
+    }*/
 }
