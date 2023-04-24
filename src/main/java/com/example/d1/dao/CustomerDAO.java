@@ -1,19 +1,28 @@
 package com.example.d1.dao;
 
 import com.example.d1.entity.Customer;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
+import java.util.Optional;
+
 public interface CustomerDAO {
+
+    List<Customer> findAll();
+
+    Customer findByID(int id);
+
+    void save (Customer customer);
+
+    Customer update(Customer customer);
+
+    void deleteByID(int id);
 
     List<Customer> getCustomers();
 
-    Customer getCustomer(int id);
+    Optional<Customer> getCustomer(int id);
 
     void saveCustomer(Customer customer);
 
-    void updateCustomer(Customer customer);
+    void updateCustomer(int id,Customer customer);
 
     void deleteCustomer(int id);
 }
